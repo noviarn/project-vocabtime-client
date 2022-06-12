@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import vocabtime from "../img/vocabtime.png";
+import vocabtime from "../assets/img/vocabtime.png";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal, Row } from "react-bootstrap";
 import { AuthContext } from "../helpers/AuthContext";

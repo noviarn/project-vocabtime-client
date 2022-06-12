@@ -25,8 +25,7 @@ function EndScreen() {
         }
       )
       .then((response) => {
-        console.log(point);
-        console.log(authState.username);
+        console.log(response);
       });
   }, []);
 
