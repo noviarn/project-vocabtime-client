@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import "../pages/Quiz.css";
+import { Button, Modal, Row } from "react-bootstrap";
 import { QuizContext } from "../helpers/Context";
 import {
   JapaneseColorQuestions,
@@ -81,14 +82,14 @@ function QuizStart() {
   };
 
   return (
-    <div className="quiz">
+    <div className="quizStart">
       <div className="question-section">
         <div className="question-count">
           <span>Question {currQuestion + 1}</span>/{questionLength}
         </div>
         <div className="question-text">{listOfQuestions.prompt}</div>
       </div>
-      <div className="quizAnswerSection gap-2">
+      <div className="answer-section gap-2">
         <Button className="optionBtn" onClick={() => setOptionChosen("A")}>
           {listOfQuestions.optionA}
         </Button>

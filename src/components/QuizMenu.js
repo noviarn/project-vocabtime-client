@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import "../pages/Quiz.css";
 import vocabtime from "../assets/img/vocabtime.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -86,76 +87,78 @@ function QuizMenu() {
   // };
 
   return (
-    <div className="quizMenu">
-      <div className="d-grid gap-2">
-        <div className="quizTopText">
+    <div className="quiz">
+      <div className="quizMenu">
+        <div className="d-grid gap-2">
+          <div className="quizTopText">
+            <Row>
+              <h3>VocabTime</h3>
+            </Row>
+            <img src={vocabtime} height={150} width={150} alt="logo" />
+          </div>
           <Row>
-            <h3>VocabTime</h3>
-          </Row>
-          <img src={vocabtime} height={150} width={150} alt="logo" />
-        </div>
-        <Row>
-          <Form.Label>Language</Form.Label>
-          <Form.Select defaultValue="" onChange={onChangeLang}>
-            <option value="" disabled>
-              Select language
-            </option>
-            {listOfLangs.map((value, key) => {
-              return (
-                <option value={value.id} key={key} required>
-                  {value.language}
-                </option>
-              );
-            })}
-          </Form.Select>
-        </Row>
-        <Row>
-          <Form.Label>Category</Form.Label>
-          <Form.Select defaultValue="" onChange={onChangeCat}>
-            <option value="" disabled>
-              Select category
-            </option>
-            {listOfCategories.map((value, key) => {
-              if (selectedLang === "") {
-                return null;
-              } else {
+            <Form.Label>Language</Form.Label>
+            <Form.Select defaultValue="" onChange={onChangeLang}>
+              <option value="" disabled>
+                Select language
+              </option>
+              {listOfLangs.map((value, key) => {
                 return (
                   <option value={value.id} key={key} required>
-                    {value.category}
+                    {value.language}
                   </option>
                 );
-              }
-            })}
-          </Form.Select>
-        </Row>
-        <Row>
-          <Button type="submit" className="navQuizBtn" onClick={startQuiz}>
-            START QUIZ
-          </Button>
-        </Row>
-        <Row>
-          <Button
-            variant="danger"
-            className="navQuizBtn"
-            onClick={() => navigate("/")}
-          >
-            CANCEL
-          </Button>
-        </Row>
+              })}
+            </Form.Select>
+          </Row>
+          <Row>
+            <Form.Label>Category</Form.Label>
+            <Form.Select defaultValue="" onChange={onChangeCat}>
+              <option value="" disabled>
+                Select category
+              </option>
+              {listOfCategories.map((value, key) => {
+                if (selectedLang === "") {
+                  return null;
+                } else {
+                  return (
+                    <option value={value.id} key={key} required>
+                      {value.category}
+                    </option>
+                  );
+                }
+              })}
+            </Form.Select>
+          </Row>
+          <Row>
+            <Button type="submit" className="navQuizBtn" onClick={startQuiz}>
+              START QUIZ
+            </Button>
+          </Row>
+          <Row>
+            <Button
+              variant="danger"
+              className="navQuizBtn"
+              onClick={() => navigate("/")}
+            >
+              CANCEL
+            </Button>
+          </Row>
+        </div>
+        <Modal show={showModal} onHide={handleClose} centered>
+          <Modal.Header>
+            <Modal.Title>VocabTime</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>You have to choose a language and a category to continue.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
-      <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Header>
-          <Modal.Title>VocabTime</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>You have to choose a language and a category to continue.</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 }

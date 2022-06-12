@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { AuthContext } from "../helpers/AuthContext";
 import vocabtime from "../assets/img/vocabtime.png";
 import ToggleOpen from "../components/ToggleOpen";
@@ -50,11 +50,10 @@ function Home() {
           <p>
             In VocabTime, you can learn multiple foreign languages's
             vocabularies the easy way by playing quizzes. Strengthening your
-            foreign languages' vocabulary vocabulary will help you develop your
-            foreign languages skill even more. Doing quizzes in VocabTime will
-            earn you points that you can collect. If you receive a perfect score
-            in every foreign language category, you will also receive a special
-            badge. Start quiz now by clicking the button below!
+            vocabulary in foreign languages will help you develop your foreign
+            languages skills even more. Doing quizzes in VocabTime will earn you
+            points that you can collect. Start quiz now by clicking the button
+            below!
           </p>
           <Button className="goToQuiz" onClick={() => navigate("/play-quiz")}>
             Play
