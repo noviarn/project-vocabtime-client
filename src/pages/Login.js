@@ -28,7 +28,10 @@ const Login = () => {
 
   const onSubmit = (data) => {
     axios
-      .post("https://project-vocabtime-nrn.herokuapp.com/signin", data)
+      .post(
+        "https://dashboard.heroku.com/apps/project-vocabtime-nrn/auth/signin",
+        data
+      )
       .then((response) => {
         if (response.data.error) {
           // alert(response.data.error);
