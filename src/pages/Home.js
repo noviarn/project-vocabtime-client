@@ -1,14 +1,17 @@
-import React, { useContext, useState, useEffect } from "react";
-import vocabtime from "../assets/img/vocabtime.png";
+import React, { useContext, useEffect, useState } from "react";
+import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal, Row } from "react-bootstrap";
 import { AuthContext } from "../helpers/AuthContext";
+import vocabtime from "../assets/img/vocabtime.png";
+import ToggleOpen from "../components/ToggleOpen";
+import ToggleClose from "../components/ToggleClose";
+import Backdrop from "../components/Backdrop";
+import SideBar from "../components/SideBar";
 
 function Home() {
-  const { authState, setAuthState } = useContext(AuthContext);
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const handleLogoutShow = () => setShowLogoutModal(true);
-  const handleLogoutClose = () => setShowLogoutModal(false);
+  const { authState } = useContext(AuthContext);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   let navigate = useNavigate();
 
@@ -22,72 +25,41 @@ function Home() {
     }
   }, [authState.status, navigate]);
 
-  const loggingOut = () => {
-    localStorage.removeItem("accessToken");
-    setAuthState({
-      fname: "",
-      username: "",
-      status: false,
-    });
-    navigate("/sign-in");
+  const toggleSidebar = () => {
+    setSidebarOpen((prevState) => !prevState);
   };
 
   return (
     <div className="home">
-      <div className="d-grid gap-2">
-        <div className="quizTopText">
-          <Row>
-            <h3>VocabTime</h3>
-          </Row>
-          <img src={vocabtime} height={150} width={150} alt="logo" />
-          <Row>
-            <h5>Hello {authState.fname}!</h5>
-          </Row>
+      <ToggleOpen openSidebar={toggleSidebar} />
+      <Backdrop sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
+      <SideBar sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
+      <ToggleClose />
+      <div class="homeContainer">
+        <div className="homeContent">
+          <h3>Hi there! Welcome to...</h3>
+          <span className="logoHome">
+            <h1>VocabTime</h1>
+            <img
+              src={vocabtime}
+              className="logoImg"
+              alt="web logo"
+              height={75}
+            />
+          </span>
+          <p>
+            In VocabTime, you can learn multiple foreign languages's
+            vocabularies the easy way by playing quizzes. Strengthening your
+            foreign languages' vocabulary vocabulary will help you develop your
+            foreign languages skill even more. Doing quizzes in VocabTime will
+            earn you points that you can collect. If you receive a perfect score
+            in every foreign language category, you will also receive a special
+            badge. Start quiz now by clicking the button below!
+          </p>
+          <Button className="goToQuiz" onClick={() => navigate("/play-quiz")}>
+            Go to quiz page
+          </Button>
         </div>
-        <Row>
-          <Button className="homeBtn" onClick={() => navigate("/play-quiz")}>
-            PLAY
-          </Button>
-        </Row>
-        <Row>
-          <Button className="homeBtn" onClick={() => navigate("/leaderboard")}>
-            LEADERBOARD
-          </Button>
-        </Row>
-        <Row>
-          <Button
-            className="homeBtn"
-            onClick={() => navigate(`/profile/${authState.username}`)}
-          >
-            PROFILE
-          </Button>
-        </Row>
-        <Row>
-          <Button
-            onClick={handleLogoutShow}
-            variant="danger"
-            className="homeBtn"
-          >
-            SIGN OUT
-          </Button>
-        </Row>
-
-        <Modal show={showLogoutModal} onHide={handleLogoutClose} centered>
-          <Modal.Header>
-            <Modal.Title>VocabTime</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Are you sure you want to log out?</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleLogoutClose}>
-              Cancel
-            </Button>
-            <Button variant="danger" onClick={loggingOut}>
-              Log out
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     </div>
   );

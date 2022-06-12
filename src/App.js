@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,8 +10,6 @@ import Profile from "./pages/Profile";
 import PlayQuiz from "./pages/PlayQuiz";
 import Leaderboard from "./pages/Leaderboard";
 import PageNotFound from "./pages/PageNotFound";
-// import VocabCategories from "./pages/VocabCategories";
-// import VocabQuiz from "./pages/VocabQuiz";
 
 function App() {
   const [authState, setAuthState] = useState({

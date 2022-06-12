@@ -1,0 +1,130 @@
+body {
+  background: white;
+  overflow-x: hidden;
+}
+
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 400px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center;
+  transform: translateX(-100%);
+  transition: all 0.4s;
+}
+
+.side-bar--open {
+  transform: translateX(0%);
+}
+
+.userImg {
+  height: 200px;
+  width: 200pxrem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.usersName {
+  font-size: 30px;
+}
+
+.navbar {
+  display: block;
+  width: 250px;
+}
+
+.navBtn {
+  height: 45px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.stripMenu {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  cursor: pointer;
+  font-size: 50px;
+  color: white;
+  font-size: 40px;
+  background: #0d6efd;
+  padding: 2px 4px;
+  z-index: 1000;
+  border-radius: 25px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.backdrop--open {
+  display: block;
+}
+
+.homeContainer {
+  padding-left: 100px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  padding: 0 150px;
+  min-height: 100vh;
+}
+
+.homeContent h3 {
+  font-size: 2.5rem;
+}
+
+.homeContent h1 {
+  font-size: 5rem;
+}
+
+.goToQuiz {
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 25px;
+}
+
+.logoHome {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .homeContainer {
+    font-size: 80%;
+  }
+
+  .homeContent h3 {
+    font-size: 2rem;
+  }
+
+  .homeContent h1 {
+    font-size: 3rem;
+  }
+  .homeContent img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+/* @media (max-width: 991px) {
+  .stripMenu {
+    display: block;
+  }
+} */

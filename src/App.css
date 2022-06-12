@@ -1,8 +1,8 @@
 /* .App {
   text-align: center;
-} */
+}
 
-/* * {
+* {
   font-family: "Verdana", cursive, sans-serif;
 }
 
@@ -12,7 +12,7 @@ body {
   align-items: center;
   min-height: 100vh;
   display: flex;
-} */
+}
 
 .home {
   background-color: white;
@@ -171,4 +171,4 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-}
+} */
