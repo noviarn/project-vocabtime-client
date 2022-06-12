@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, Row } from "react-bootstrap";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
+import BounceLoader from "react-spinners/BounceLoader";
 
 function Profile() {
   const { authState } = useContext(AuthContext);
@@ -10,9 +11,17 @@ function Profile() {
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [points, setPoints] = useState();
+  const [showLoading, setShowLoading] = useState(false);
 
   let navigate = useNavigate();
   let { id } = useParams();
+
+  useEffect(() => {
+    setShowLoading(true);
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
@@ -37,26 +46,32 @@ function Profile() {
 
   return (
     <div className="profile">
-      <div className="quizTopText">
-        <Row>
-          <h4>
-            {firstName} {lastName}
-          </h4>
-        </Row>
-        <Row>
-          <h4>@{username}</h4>
-        </Row>
-        <Row>
-          <h5>
-            <h5>You currently have {points} points.</h5>
-          </h5>
-        </Row>
-        <Row>
-          <Button className="homeBtn" onClick={() => navigate("/")}>
-            HOME
-          </Button>
-        </Row>
-      </div>
+      {showLoading ? (
+        <div className="loader">
+          <BounceLoader color={"#7AA5D2"} loading={showLoading} size={50} />
+        </div>
+      ) : (
+        <div className="quizTopText">
+          <Row>
+            <h4>
+              {firstName} {lastName}
+            </h4>
+          </Row>
+          <Row>
+            <h4>@{username}</h4>
+          </Row>
+          <Row>
+            <h5>
+              <h5>You currently have {points} points.</h5>
+            </h5>
+          </Row>
+          <Row>
+            <Button className="homeBtn" onClick={() => navigate("/")}>
+              HOME
+            </Button>
+          </Row>
+        </div>
+      )}
     </div>
   );
 }
