@@ -21,14 +21,18 @@ function QuizMenu() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3002/languages").then((response) => {
-      setListOfLangs(response.data);
-    });
+    axios
+      .get("https://project-vocabtime-nrn.herokuapp.com/languages")
+      .then((response) => {
+        setListOfLangs(response.data);
+      });
   }, []);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3002/categories/${selectedLang}`)
+      .get(
+        `https://project-vocabtime-nrn.herokuapp.com/categories/${selectedLang}`
+      )
       .then((response) => {
         setListOfCategories(response.data);
       });

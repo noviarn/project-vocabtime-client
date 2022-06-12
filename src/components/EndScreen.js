@@ -18,9 +18,12 @@ function EndScreen() {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:3002/auth/get-points/${authState.username}`, {
-        point,
-      })
+      .post(
+        `https://project-vocabtime-nrn.herokuapp.com/auth/get-points/${authState.username}`,
+        {
+          point,
+        }
+      )
       .then((response) => {
         console.log(point);
         console.log(authState.username);

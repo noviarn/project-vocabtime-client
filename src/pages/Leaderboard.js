@@ -21,9 +21,11 @@ function Leaderboard() {
   }, [authState.status, navigate]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/auth/leaderboard").then((response) => {
-      setUsersList(response.data);
-    });
+    axios
+      .get("https://project-vocabtime-nrn.herokuapp.com/auth/leaderboard")
+      .then((response) => {
+        setUsersList(response.data);
+      });
   }, []);
 
   return (

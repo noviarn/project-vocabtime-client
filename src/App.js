@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/auth/validate", {
+      .get("https://project-vocabtime-nrn.herokuapp.com/auth/validate", {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {

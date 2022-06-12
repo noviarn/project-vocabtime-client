@@ -44,16 +44,18 @@ function Register() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3002/auth", data).then((response) => {
-      if (response.data.error) {
-        setRegisterErrorMessage(response.data.error);
-        console.log(registerErrorMessage);
-        setShowErrorModal(true);
-      } else {
-        setRegisterSuccessMessage(response.data.success);
-        setShowSuccessModal(true);
-      }
-    });
+    axios
+      .post("https://project-vocabtime-nrn.herokuapp.com/auth", data)
+      .then((response) => {
+        if (response.data.error) {
+          setRegisterErrorMessage(response.data.error);
+          console.log(registerErrorMessage);
+          setShowErrorModal(true);
+        } else {
+          setRegisterSuccessMessage(response.data.success);
+          setShowSuccessModal(true);
+        }
+      });
     // navigate("/");
   };
 

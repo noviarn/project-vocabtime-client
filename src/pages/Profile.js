@@ -25,12 +25,14 @@ function Profile() {
   }, [authState.status, navigate]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3002/auth/infos/${id}`).then((response) => {
-      setFirstName(response.data.fname);
-      setLastName(response.data.lname);
-      setUsername(response.data.username);
-      setPoints(response.data.points);
-    });
+    axios
+      .get(`https://project-vocabtime-nrn.herokuapp.com/auth/infos/${id}`)
+      .then((response) => {
+        setFirstName(response.data.fname);
+        setLastName(response.data.lname);
+        setUsername(response.data.username);
+        setPoints(response.data.points);
+      });
   }, [id]);
 
   return (

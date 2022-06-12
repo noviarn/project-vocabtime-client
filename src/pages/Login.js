@@ -27,21 +27,23 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3002/auth/signin", data).then((response) => {
-      if (response.data.error) {
-        // alert(response.data.error);
-        setErrorMessage(response.data.error);
-        setShowModal(true);
-      } else {
-        localStorage.setItem("accessToken", response.data.token);
-        setAuthState({
-          fname: response.data.fname,
-          username: response.data.username,
-          status: true,
-        });
-        navigate("/");
-      }
-    });
+    axios
+      .post("https://project-vocabtime-nrn.herokuapp.com/signin", data)
+      .then((response) => {
+        if (response.data.error) {
+          // alert(response.data.error);
+          setErrorMessage(response.data.error);
+          setShowModal(true);
+        } else {
+          localStorage.setItem("accessToken", response.data.token);
+          setAuthState({
+            fname: response.data.fname,
+            username: response.data.username,
+            status: true,
+          });
+          navigate("/");
+        }
+      });
   };
 
   return (
