@@ -107,7 +107,7 @@ body {
 
 @media (max-width: 620px) {
   * {
-    overflow: hidden;
+    overflow: scroll;
   }
 
   .homeContainer {
