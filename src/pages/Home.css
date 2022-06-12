@@ -95,8 +95,8 @@ body {
 }
 
 .goToQuiz {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
   border-radius: 25px;
 }
 
@@ -105,21 +105,30 @@ body {
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .homeContainer {
-    font-size: 80%;
+@media (max-width: 620px) {
+  * {
+    overflow: hidden;
   }
 
+  .homeContainer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   .homeContent h3 {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .homeContent h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
+
   .homeContent img {
     height: 40px;
     width: 40px;
+  }
+
+  .goToQuiz {
+    width: min-content;
   }
 }
 

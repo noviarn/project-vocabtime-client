@@ -57,7 +57,7 @@ function Home() {
             badge. Start quiz now by clicking the button below!
           </p>
           <Button className="goToQuiz" onClick={() => navigate("/play-quiz")}>
-            Go to quiz page
+            Play
           </Button>
         </div>
       </div>
