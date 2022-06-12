@@ -92,5 +92,6 @@ body {
 @media (max-width: 420px) {
   .quizStart {
     display: block;
+    width: max-content;
   }
 }
