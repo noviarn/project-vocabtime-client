@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../pages/Quiz.css";
-import { Button, Modal, Row } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { QuizContext } from "../helpers/Context";
 import {
   JapaneseColorQuestions,

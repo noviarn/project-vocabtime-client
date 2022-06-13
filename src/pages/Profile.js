@@ -3,6 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, Row } from "react-bootstrap";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
+import ToggleOpen from "../components/ToggleOpen";
+import ToggleClose from "../components/ToggleClose";
+import Backdrop from "../components/Backdrop";
+import SideBar from "../components/SideBar";
 import BounceLoader from "react-spinners/BounceLoader";
 
 function Profile() {
@@ -12,6 +16,7 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [points, setPoints] = useState();
   const [showLoading, setShowLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   let navigate = useNavigate();
   let { id } = useParams();
@@ -22,6 +27,10 @@ function Profile() {
       setShowLoading(false);
     }, 3000);
   }, []);
+
+  const toggleSidebar = () => {
+    setSidebarOpen((prevState) => !prevState);
+  };
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
@@ -52,6 +61,10 @@ function Profile() {
         </div>
       ) : (
         <div className="quizTopText">
+          <ToggleOpen openSidebar={toggleSidebar} />
+          <Backdrop sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
+          <SideBar sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
+          <ToggleClose />
           <Row>
             <h4>
               {firstName} {lastName}

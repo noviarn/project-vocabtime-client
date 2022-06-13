@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Modal, Row } from "react-bootstrap";
 import { AuthContext } from "../helpers/AuthContext";
 import { BsArrowLeftShort } from "react-icons/bs";
-import defaultIcon from "../assets/user-profile-pictures/defaultIcon.png";
+import vocabtime from "../assets/img/vocabtime.png";
 
 function SideBar({ sidebar, closeSidebar }) {
   const { authState, setAuthState } = useContext(AuthContext);
@@ -31,11 +31,7 @@ function SideBar({ sidebar, closeSidebar }) {
       <BsArrowLeftShort className="stripMenu"></BsArrowLeftShort>
       <header>
         <div className="userSection">
-          <img
-            src={defaultIcon}
-            className="userImg"
-            alt="user's default icon"
-          />
+          <img src={vocabtime} className="userImg" alt="web logo" />
           <h3 className="usersName">@{authState.username}</h3>
         </div>
         <nav className="navbar">
