@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Row, Col, Button, InputGroup } from "react-bootstrap";
+import { Form, Row, InputGroup } from "react-bootstrap";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 import ToggleOpen from "../components/ToggleOpen";
@@ -78,6 +78,7 @@ function Profile() {
               <Form.Group className="mb-3">
                 <Form.Label>First name</Form.Label>
                 <Form.Control
+                  readOnly
                   type="text"
                   name="fname"
                   placeholder={firstName}
@@ -86,6 +87,7 @@ function Profile() {
               <Form.Group className="mb-3">
                 <Form.Label>Last name</Form.Label>
                 <Form.Control
+                  readOnly
                   type="text"
                   name="lname"
                   placeholder={lastName}
@@ -96,6 +98,7 @@ function Profile() {
                 <InputGroup>
                   <InputGroup.Text>@</InputGroup.Text>
                   <Form.Control
+                    readOnly
                     type="text"
                     name="username"
                     placeholder={username}

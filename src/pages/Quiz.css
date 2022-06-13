@@ -94,13 +94,17 @@ body {
   margin: 32px;
 }
 
-@media (max-width: 420px) {
+.quizScore {
+  margin: 32px;
+}
+
+@media (max-width: 500px) {
   .quizStart {
     display: block;
     width: max-content;
   }
 
   .quiz {
-    width: max-content;
+    max-width: 500px;
   }
 }

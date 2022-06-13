@@ -58,6 +58,7 @@ form {
 }
 
 .authBtn {
+  margin-top: 10px;
   border-radius: 25px;
   color: white;
   text-transform: uppercase;

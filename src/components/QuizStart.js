@@ -6,6 +6,7 @@ import {
   JapaneseColorQuestions,
   JapaneseTransportationsQuestions,
   GermanAnimalsQuestions,
+  GermanOccupationsQuestions,
 } from "../helpers/QuestionList";
 
 function QuizStart() {
@@ -41,6 +42,10 @@ function QuizStart() {
       setQuestions(JapaneseTransportationsQuestions);
       setQuestionLength(JapaneseTransportationsQuestions.length);
       setListOfQuestions(JapaneseTransportationsQuestions[currQuestion]);
+    } else if (selectedLang === "2" && selectedCat === "4") {
+      setQuestions(GermanOccupationsQuestions);
+      setQuestionLength(GermanOccupationsQuestions.length);
+      setListOfQuestions(GermanOccupationsQuestions[currQuestion]);
     }
   }, [
     listOfQuestions,
