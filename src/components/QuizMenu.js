@@ -107,6 +107,7 @@ function QuizMenu() {
                 <h3>VocabTime</h3>
               </Row>
               <img src={vocabtime} height={150} width={150} alt="logo" />
+              <h5>You'll have 15 seconds to answer each question</h5>
             </div>
             <Row>
               <Form.Label>Language</Form.Label>

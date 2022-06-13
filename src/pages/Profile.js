@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Row, Col, Button, InputGroup } from "react-bootstrap";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 import ToggleOpen from "../components/ToggleOpen";
@@ -73,44 +73,37 @@ function Profile() {
               <h6>You currently have {points} point(s)</h6>
             </Row>
           </div>
-          <Row>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextEmail"
-            >
-              <Form.Label column sm="2">
-                First name
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" placeholder={firstName} readOnly />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextEmail"
-            >
-              <Form.Label column sm="2">
-                Last name
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" placeholder={lastName} readOnly />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextEmail"
-            >
-              <Form.Label column sm="2">
-                Username
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" placeholder={username} readOnly />
-              </Col>
-            </Form.Group>
-          </Row>
+          <div className="profileBox">
+            <Form className="rounded p-4 p-sm-3" style={{ width: "400px" }}>
+              <Form.Group className="mb-3">
+                <Form.Label>First name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="fname"
+                  placeholder={firstName}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Last name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="lname"
+                  placeholder={lastName}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Username</Form.Label>
+                <InputGroup>
+                  <InputGroup.Text>@</InputGroup.Text>
+                  <Form.Control
+                    type="text"
+                    name="username"
+                    placeholder={username}
+                  ></Form.Control>
+                </InputGroup>
+              </Form.Group>
+            </Form>
+          </div>
         </div>
       )}
     </div>

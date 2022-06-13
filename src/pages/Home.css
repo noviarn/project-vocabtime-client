@@ -105,6 +105,14 @@ body {
   align-items: center;
 }
 
+.profile {
+  padding: 32px;
+}
+
+.profileBox {
+  max-width: 500px;
+}
+
 @media (max-width: 620px) {
   .homeContainer {
     margin-top: 40px;
