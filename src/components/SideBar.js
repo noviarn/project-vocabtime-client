@@ -32,7 +32,6 @@ function SideBar({ sidebar, closeSidebar }) {
       <header>
         <div className="userSection">
           <img src={vocabtime} className="userImg" alt="web logo" />
-          <h3 className="usersName">@{authState.username}</h3>
         </div>
         <nav className="navbar">
           <Row>

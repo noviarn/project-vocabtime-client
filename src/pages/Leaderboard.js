@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
+import { Table } from "react-bootstrap";
 import ToggleOpen from "../components/ToggleOpen";
 import ToggleClose from "../components/ToggleClose";
 import Backdrop from "../components/Backdrop";
@@ -57,19 +58,31 @@ function Leaderboard() {
           <ToggleClose />
           <div className="item">
             <div className="info">
-              {usersList.map((value, key) => (
-                <div className="flex" key={key}>
-                  <div className="item">
-                    <div className="info">
-                      <h3 className="name text-dark">{value.fname}</h3>
-                      <span>@{value.username}</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <span>{value.points} points</span>
-                  </div>
-                </div>
-              ))}
+              <div className="quizTopText">
+                <h3>LEADERBOARD</h3>
+              </div>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {usersList.map((value, key) => (
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        {value.fname} {value.lname}
+                      </td>
+                      <td>@{value.username}</td>
+                      <td>{value.points}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
             </div>
           </div>
         </div>

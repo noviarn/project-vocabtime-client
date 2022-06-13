@@ -78,11 +78,6 @@ function Profile() {
               <h5>You currently have {points} points.</h5>
             </h5>
           </Row>
-          <Row>
-            <Button className="homeBtn" onClick={() => navigate("/")}>
-              HOME
-            </Button>
-          </Row>
         </div>
       )}
     </div>
