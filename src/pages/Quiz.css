@@ -99,4 +99,8 @@ body {
     display: block;
     width: max-content;
   }
+
+  .quiz {
+    width: max-content;
+  }
 }
