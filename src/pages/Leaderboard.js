@@ -77,7 +77,7 @@ function Leaderboard() {
                       <td>
                         {value.fname} {value.lname}
                       </td>
-                      <td>@{value.username}</td>
+                      <td key={key}>@{value.username}</td>
                       <td>{value.points}</td>
                     </tr>
                   ))}

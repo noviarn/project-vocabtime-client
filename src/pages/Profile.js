@@ -50,7 +50,6 @@ function Profile() {
         setLastName(response.data.lname);
         setUsername(response.data.username);
         setPoints(response.data.points);
-        console.log(lastName);
       });
   }, [id]);
 
@@ -81,10 +80,22 @@ function Profile() {
               controlId="formPlaintextEmail"
             >
               <Form.Label column sm="2">
-                Name
+                First name
               </Form.Label>
               <Col sm="10">
                 <Form.Control type="text" placeholder={firstName} readOnly />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Form.Label column sm="2">
+                Last name
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" placeholder={lastName} readOnly />
               </Col>
             </Form.Group>
             <Form.Group
