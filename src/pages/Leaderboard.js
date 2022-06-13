@@ -73,7 +73,7 @@ function Leaderboard() {
                 <tbody>
                   {usersList.map((value, key) => (
                     <tr>
-                      <td>1</td>
+                      <td>{key + 1}</td>
                       <td>
                         {value.fname} {value.lname}
                       </td>
