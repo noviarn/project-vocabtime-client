@@ -26,6 +26,7 @@ function QuizStart() {
   const [optionChosen, setOptionChosen] = useState("");
   const [showOptionModal, setShowOptionModal] = useState(false);
   const handleOptionModalClose = () => setShowOptionModal(false);
+  const [counter, setCounter] = useState(15);
 
   useEffect(() => {
     if (selectedLang === "1" && selectedCat === "1") {
@@ -51,18 +52,30 @@ function QuizStart() {
     selectedCat,
   ]);
 
+  useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+
+    if (counter === 0) {
+      setGameState("gameOver");
+    }
+    return () => clearInterval(timer);
+  }, [counter]);
+
   const nextQuestion = () => {
     if (listOfQuestions.answer === optionChosen) {
       setPoint(point + 1);
       setCorrectAnswers((correctAnswers) =>
         correctAnswers.concat([listOfQuestions.word])
       );
+      setCounter(15);
     }
     if (optionChosen === "") {
       setShowOptionModal(true);
     } else {
       setOptionChosen("");
       setCurrQuestion(currQuestion + 1);
+      setCounter(15);
     }
   };
 
@@ -88,6 +101,10 @@ function QuizStart() {
           <span>Question {currQuestion + 1}</span>/{questionLength}
         </div>
         <div className="question-text">{listOfQuestions.prompt}</div>
+        <div>
+          {counter} seconds left
+          <br />
+        </div>
       </div>
       <div className="answer-section gap-2">
         <Button className="optionBtn" onClick={() => setOptionChosen("A")}>
@@ -118,7 +135,10 @@ function QuizStart() {
           <Modal.Title>VocabTime</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>You should choose an answer before continuing!</p>
+          <p>
+            You should choose an answer before continuing. Don't worry, your
+            won't get a negative point if your answer is incorrect.
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleOptionModalClose}>

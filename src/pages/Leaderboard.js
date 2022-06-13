@@ -61,6 +61,12 @@ function Leaderboard() {
               <div className="quizTopText">
                 <h3>LEADERBOARD</h3>
               </div>
+              <div className="quizTopText">
+                <h6>
+                  Collect points by doing quizzes so you can get a spot on the
+                  leaderboard!
+                </h6>
+              </div>
               <Table>
                 <thead>
                   <tr>

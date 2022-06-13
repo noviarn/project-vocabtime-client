@@ -63,7 +63,12 @@ function Register() {
   return (
     <div className="Auth">
       <div className="imageBox">
-        <img src={bgresized} className="authImg" alt="images on auth pages" />
+        <img
+          src={bgresized}
+          className="authImg"
+          alt="images on auth pages"
+          // style={{ display: "block" }}
+        />
       </div>
       <div className="contentBox">
         <div className="formBox">

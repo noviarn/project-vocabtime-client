@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import QuizMenu from "../components/QuizMenu";
 import QuizStart from "../components/QuizStart";
 import EndScreen from "../components/EndScreen";
+import GameOver from "../components/GameOver";
 import { QuizContext } from "../helpers/Context";
 import { AuthContext } from "../helpers/AuthContext";
 
@@ -54,6 +55,7 @@ function PlayQuiz() {
         {gameState === "menu" && <QuizMenu />}
         {gameState === "quiz" && <QuizStart />}
         {gameState === "endScreen" && <EndScreen />}
+        {gameState === "gameOver" && <GameOver />}
       </QuizContext.Provider>
     </div>
   );
