@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, Row } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 import ToggleOpen from "../components/ToggleOpen";
@@ -50,6 +50,7 @@ function Profile() {
         setLastName(response.data.lname);
         setUsername(response.data.username);
         setPoints(response.data.points);
+        console.log(lastName);
       });
   }, [id]);
 
@@ -60,23 +61,44 @@ function Profile() {
           <BounceLoader color={"#7AA5D2"} loading={showLoading} size={50} />
         </div>
       ) : (
-        <div className="quizTopText">
+        <div className="d-grid gap-2">
           <ToggleOpen openSidebar={toggleSidebar} />
           <Backdrop sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
           <SideBar sidebar={sidebarOpen} closeSidebar={toggleSidebar} />
           <ToggleClose />
+          <div className="quizTopText">
+            <Row>
+              <h3>{firstName}'s Profile</h3>
+            </Row>
+            <Row>
+              <h6>You currently have {points} point(s)</h6>
+            </Row>
+          </div>
           <Row>
-            <h4>
-              {firstName} {lastName}
-            </h4>
-          </Row>
-          <Row>
-            <h4>@{username}</h4>
-          </Row>
-          <Row>
-            <h5>
-              <h5>You currently have {points} points.</h5>
-            </h5>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Form.Label column sm="2">
+                Name
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" placeholder={firstName} readOnly />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Form.Label column sm="2">
+                Username
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" placeholder={username} readOnly />
+              </Col>
+            </Form.Group>
           </Row>
         </div>
       )}
