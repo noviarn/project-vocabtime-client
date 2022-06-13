@@ -60,7 +60,7 @@ function QuizStart() {
       setGameState("gameOver");
     }
     return () => clearInterval(timer);
-  }, [counter]);
+  }, [counter, setGameState]);
 
   const nextQuestion = () => {
     if (listOfQuestions.answer === optionChosen) {

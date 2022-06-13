@@ -59,7 +59,7 @@ function Leaderboard() {
           <div className="item">
             <div className="info">
               <div className="quizTopText">
-                <h3>LEADERBOARD</h3>
+                <h3>TOP 15 LEADERBOARD</h3>
               </div>
               <div className="quizTopText">
                 <h6>

@@ -57,6 +57,18 @@ form {
   letter-spacing: 1px;
 }
 
+.authBtn {
+  border-radius: 25px;
+  color: white;
+  text-transform: uppercase;
+  width: 200px;
+  width: 100%;
+}
+
+.btnAuth {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .imageBox {
     position: absolute;

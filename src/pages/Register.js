@@ -6,7 +6,6 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
-import bgresized from "../assets/img/bgresized.jpg";
 
 function Register() {
   const { authState } = useContext(AuthContext);
@@ -62,14 +61,14 @@ function Register() {
 
   return (
     <div className="Auth">
-      <div className="imageBox">
+      {/* <div className="imageBox">
         <img
           src={bgresized}
           className="authImg"
           alt="images on auth pages"
-          // style={{ display: "block" }}
+          style={{ display: "inline-block" }}
         />
-      </div>
+      </div> */}
       <div className="contentBox">
         <div className="formBox">
           <Formik
@@ -149,11 +148,15 @@ function Register() {
                     {errors.password}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button type="submit">SIGN UP</Button>
-                <br />
-                <Form.Text>
-                  Already have an account? <Link to="/sign-in">Sign in</Link>
-                </Form.Text>
+                <div class="btnAuth">
+                  <Button type="submit" className="authBtn">
+                    SIGN UP
+                  </Button>
+                  <br />
+                  <Form.Text>
+                    Already have an account? <Link to="/sign-in">Sign in</Link>
+                  </Form.Text>
+                </div>
                 <Modal
                   show={showSuccessModal}
                   onHide={handleSuccessClose}

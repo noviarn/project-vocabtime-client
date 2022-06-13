@@ -6,7 +6,6 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
-import bgresized from "../assets/img/bgresized.jpg";
 
 const Login = () => {
   const { authState, setAuthState } = useContext(AuthContext);
@@ -49,9 +48,9 @@ const Login = () => {
 
   return (
     <div className="Auth">
-      <div className="imageBox">
+      {/* <div className="imageBox">
         <img src={bgresized} className="authImg" alt="images on auth pages" />
-      </div>
+      </div> */}
       <div className="contentBox">
         <div className="formBox">
           <Formik
@@ -109,13 +108,16 @@ const Login = () => {
                     {errors.password}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button type="submit" className="authButton">
-                  SIGN IN
-                </Button>
-                <br />
-                <Form.Text>
-                  Don't have an account? <Link to="/sign-up">Sign up</Link>
-                </Form.Text>
+                <div className="btnAuth">
+                  {" "}
+                  <Button type="submit" className="authBtn">
+                    SIGN IN
+                  </Button>
+                  <br />
+                  <Form.Text>
+                    Don't have an account? <Link to="/sign-up">Sign up</Link>
+                  </Form.Text>
+                </div>
                 <Modal show={showModal} onHide={handleClose} centered>
                   <Modal.Header>
                     <Modal.Title>VocabTime</Modal.Title>
