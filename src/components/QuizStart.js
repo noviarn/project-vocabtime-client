@@ -5,8 +5,12 @@ import { QuizContext } from "../helpers/Context";
 import {
   JapaneseColorQuestions,
   JapaneseTransportationsQuestions,
+  JapaneseHumanBodyQuestions,
+  JapaneseFruitsQuestions,
   GermanAnimalsQuestions,
   GermanOccupationsQuestions,
+  GermanGreetingsQuestions,
+  GermanVegetablesQuestions,
 } from "../helpers/QuestionList";
 
 function QuizStart() {
@@ -46,6 +50,22 @@ function QuizStart() {
       setQuestions(GermanOccupationsQuestions);
       setQuestionLength(GermanOccupationsQuestions.length);
       setListOfQuestions(GermanOccupationsQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "5") {
+      setQuestions(JapaneseHumanBodyQuestions);
+      setQuestionLength(JapaneseHumanBodyQuestions.length);
+      setListOfQuestions(JapaneseHumanBodyQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "6") {
+      setQuestions(JapaneseFruitsQuestions);
+      setQuestionLength(JapaneseFruitsQuestions.length);
+      setListOfQuestions(JapaneseFruitsQuestions[currQuestion]);
+    } else if (selectedLang === "2" && selectedCat === "7") {
+      setQuestions(GermanGreetingsQuestions);
+      setQuestionLength(GermanGreetingsQuestions.length);
+      setListOfQuestions(GermanGreetingsQuestions[currQuestion]);
+    } else if (selectedLang === "2" && selectedCat === "8") {
+      setQuestions(GermanVegetablesQuestions);
+      setQuestionLength(GermanVegetablesQuestions.length);
+      setListOfQuestions(GermanVegetablesQuestions[currQuestion]);
     }
   }, [
     listOfQuestions,
