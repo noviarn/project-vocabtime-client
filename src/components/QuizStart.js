@@ -7,10 +7,18 @@ import {
   JapaneseTransportationsQuestions,
   JapaneseHumanBodyQuestions,
   JapaneseFruitsQuestions,
+  JapaneseStationeryQuestions,
+  JapaneseAnimalsQuestions,
+  JapaneseGreetingsQuestions,
+  JapaneseNumbersQuestions,
+  JapaneseOccupationsQuestions,
+  JapaneseVegetableQuestions,
   GermanAnimalsQuestions,
   GermanOccupationsQuestions,
   GermanGreetingsQuestions,
   GermanVegetablesQuestions,
+  GermanNumbersQuestions,
+  GermanColorQuestions,
 } from "../helpers/QuestionList";
 
 function QuizStart() {
@@ -34,19 +42,19 @@ function QuizStart() {
   const [counter, setCounter] = useState(15);
 
   useEffect(() => {
-    if (selectedLang === "1" && selectedCat === "1") {
+    if (selectedLang === "1" && selectedCat === "2") {
       setQuestions(JapaneseColorQuestions);
       setQuestionLength(JapaneseColorQuestions.length);
       setListOfQuestions(JapaneseColorQuestions[currQuestion]);
-    } else if (selectedLang === "2" && selectedCat === "3") {
+    } else if (selectedLang === "2" && selectedCat === "11") {
       setQuestions(GermanAnimalsQuestions);
       setQuestionLength(GermanAnimalsQuestions.length);
       setListOfQuestions(GermanAnimalsQuestions[currQuestion]);
-    } else if (selectedLang === "1" && selectedCat === "2") {
+    } else if (selectedLang === "1" && selectedCat === "9") {
       setQuestions(JapaneseTransportationsQuestions);
       setQuestionLength(JapaneseTransportationsQuestions.length);
       setListOfQuestions(JapaneseTransportationsQuestions[currQuestion]);
-    } else if (selectedLang === "2" && selectedCat === "4") {
+    } else if (selectedLang === "2" && selectedCat === "15") {
       setQuestions(GermanOccupationsQuestions);
       setQuestionLength(GermanOccupationsQuestions.length);
       setListOfQuestions(GermanOccupationsQuestions[currQuestion]);
@@ -54,18 +62,50 @@ function QuizStart() {
       setQuestions(JapaneseHumanBodyQuestions);
       setQuestionLength(JapaneseHumanBodyQuestions.length);
       setListOfQuestions(JapaneseHumanBodyQuestions[currQuestion]);
-    } else if (selectedLang === "1" && selectedCat === "6") {
+    } else if (selectedLang === "1" && selectedCat === "3") {
       setQuestions(JapaneseFruitsQuestions);
       setQuestionLength(JapaneseFruitsQuestions.length);
       setListOfQuestions(JapaneseFruitsQuestions[currQuestion]);
-    } else if (selectedLang === "2" && selectedCat === "7") {
+    } else if (selectedLang === "2" && selectedCat === "13") {
       setQuestions(GermanGreetingsQuestions);
       setQuestionLength(GermanGreetingsQuestions.length);
       setListOfQuestions(GermanGreetingsQuestions[currQuestion]);
-    } else if (selectedLang === "2" && selectedCat === "8") {
+    } else if (selectedLang === "2" && selectedCat === "16") {
       setQuestions(GermanVegetablesQuestions);
       setQuestionLength(GermanVegetablesQuestions.length);
       setListOfQuestions(GermanVegetablesQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "8") {
+      setQuestions(JapaneseStationeryQuestions);
+      setQuestionLength(JapaneseStationeryQuestions.length);
+      setListOfQuestions(JapaneseStationeryQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "1") {
+      setQuestions(JapaneseAnimalsQuestions);
+      setQuestionLength(JapaneseAnimalsQuestions.length);
+      setListOfQuestions(JapaneseAnimalsQuestions[currQuestion]);
+    } else if (selectedLang === "2" && selectedCat === "14") {
+      setQuestions(GermanNumbersQuestions);
+      setQuestionLength(GermanNumbersQuestions.length);
+      setListOfQuestions(GermanNumbersQuestions[currQuestion]);
+    } else if (selectedLang === "2" && selectedCat === "12") {
+      setQuestions(GermanColorQuestions);
+      setQuestionLength(GermanColorQuestions.length);
+      setListOfQuestions(GermanColorQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "4") {
+      setQuestions(JapaneseGreetingsQuestions);
+      setQuestionLength(JapaneseGreetingsQuestions.length);
+      setListOfQuestions(JapaneseGreetingsQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "6") {
+      setQuestions(JapaneseNumbersQuestions);
+      setQuestionLength(JapaneseNumbersQuestions.length);
+      setListOfQuestions(JapaneseNumbersQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "7") {
+      setQuestions(JapaneseOccupationsQuestions);
+      setQuestionLength(JapaneseOccupationsQuestions.length);
+      setListOfQuestions(JapaneseOccupationsQuestions[currQuestion]);
+    } else if (selectedLang === "1" && selectedCat === "10") {
+      setQuestions(JapaneseVegetableQuestions);
+      setQuestionLength(JapaneseVegetableQuestions.length);
+      setListOfQuestions(JapaneseVegetableQuestions[currQuestion]);
     }
   }, [
     listOfQuestions,
